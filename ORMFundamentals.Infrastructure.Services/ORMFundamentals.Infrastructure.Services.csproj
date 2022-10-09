@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ORMFundamentals.Domain.Repository\ORMFundamentals.Domain.Repository.csproj" />
+    <ProjectReference Include="..\ORMFundamentals.Domain.Services\ORMFundamentals.Domain.Services.csproj" />
+    <ProjectReference Include="..\ORMFundamentals.Infrastructure.Helper\ORMFundamentals.Infrastructure.Helper.csproj" />
+  </ItemGroup>
+
+</Project>
