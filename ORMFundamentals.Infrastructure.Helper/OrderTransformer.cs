@@ -1,6 +1,7 @@
 ﻿using Domain.EntityModels;
 using ORMFundamentals.Domain.Models.ViewModels.Order;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ORMFundamentals.Infrastructure.Helper
@@ -11,7 +12,7 @@ namespace ORMFundamentals.Infrastructure.Helper
         {
             return new Order()
             {
-                Id = model.Id,
+
                 CreatedDate = DateTime.Now,
                 ProductId = model.ProductId,
                 Status = model.Status,
@@ -38,7 +39,7 @@ namespace ORMFundamentals.Infrastructure.Helper
                 UpdatedDate = order.UpdatedDate
             };
         }
-        public static GetOrdersViewModel AsGetOrdersViewModel(this IQueryable<Order> orders)
+        public static GetOrdersViewModel AsGetOrdersViewModel(this IEnumerable<Order> orders)
         {
             GetOrdersViewModel model = new GetOrdersViewModel();
             model.Orders = orders.Select(m => new GetOrdersItems()

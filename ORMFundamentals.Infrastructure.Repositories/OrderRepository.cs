@@ -1,4 +1,5 @@
 ﻿using Domain.EntityModels;
+using Microsoft.EntityFrameworkCore;
 using ORMFundamentals.Domain.Repository;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,17 @@ namespace ORMFundamentals.Infrastructure.Repositories
            return this.Get().Where(m => m.Id == orderID).FirstOrDefault();
         }
 
-        public IQueryable<Order> GetOrders()
+        public IEnumerable<Order> GetOrders(int? productID, int? month, int? year, int? status)
         {
-            return this.Get();
+            if (productID == null && month == null && year == null && status == null)
+            {
+                return this.Get();
+            }
+            else
+            {
+
+                return this.Database.Orders.FromSqlRaw<Order>("EXEC GetOrders @productID={0},@month={1},@year={2},@status={3}", productID, month, year, status).ToList();
+            }
         }
 
         public Order UpdateOrder(Order order)

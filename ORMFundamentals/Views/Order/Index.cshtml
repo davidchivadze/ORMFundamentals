@@ -1,14 +1,40 @@
 ﻿@model ORMFundamentals.Domain.Models.ViewModels.Order.GetOrdersViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Products";
 }
 
-<h1>Index</h1>
+<h1>Orders</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="">
+    <form class="row" asp-action="Index" asp-controller="Order">
+        <div class="col-md-2">
+
+            <label for="ProductID">Product ID</label>
+            <input class="form-control" id="ProductID" type="number" name="ProductID" />
+        </div>
+        <div class="col-md-2">
+
+            <label for="Year">Year</label>
+            <input class="form-control" id="Year" name="Year" />
+        </div>
+        <div class="col-md-2">
+
+            <label for="Month">Month</label>
+            <input class="form-control" id="Month" name="Month" />
+        </div>
+        <div class="col-md-2">
+
+            <label for="Status">Status</label>
+            <input class="form-control" id="Status" name="Status" />
+        </div>
+        <input type="submit" class="btn btn-success col-md-2" value="Search" />
+    </form>
+</div>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -31,9 +57,9 @@
                 <td>@item.CreatedDate.ToShortDateString()</td>
                 <td>@item.UpdatedDate.ToShortDateString()</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+
+                    @Html.ActionLink("Delete", "Delete",  new {  id=item.Id  })
                 </td>
             </tr>
         }

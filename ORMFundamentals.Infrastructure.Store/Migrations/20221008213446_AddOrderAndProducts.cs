@@ -50,6 +50,7 @@ namespace ORMFundamentals.Infrastructure.Store.Migrations
                 name: "IX_Orders_ProductId",
                 table: "Orders",
                 column: "ProductId");
+ 
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -50,11 +50,11 @@ namespace ORMFundamentals.Infrastructure.Services
             }
         }
 
-        public GetOrdersViewModel GetOrders()
+        public GetOrdersViewModel GetOrders(OrderFilterViewModel filter=null)
         {
             try
             {
-                var orders = _orderRepository.GetOrders().AsGetOrdersViewModel();
+                var orders = _orderRepository.GetOrders(filter.ProductID, filter.Month,filter.Year, filter.Status).AsGetOrdersViewModel();
                 return orders;
             }catch(Exception ex)
             {

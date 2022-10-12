@@ -8,7 +8,7 @@ namespace ORMFundamentals.Domain.Repository
 {
     public interface IOrderRepository:IBaseRepository<Order>
     {
-        IQueryable<Order> GetOrders();
+        IEnumerable<Order> GetOrders(int? productID, int? month, int? year, int? status);
         Order UpdateOrder (Order order);
         Order DeleteOrder (int orderID);
         Order GetOrderById (int orderID);
